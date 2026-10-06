@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Describe an idea and generate a new image with AI." />
+  <title>Image Generator | Image Studio</title>
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/generator.css" />
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/api.js" defer></script>
+  <script src="../js/generator.js" defer></script>
+</head>
+<body>
+  <!-- Floating colored shapes behind the glass -->
+  <div class="background" aria-hidden="true">
+    <span class="blob blob--one"></span>
+    <span class="blob blob--two"></span>
+    <span class="blob blob--three"></span>
+  </div>
+
+  <!-- Top navigation bar -->
+  <header class="navbar glass">
+    <a href="../index.html" class="navbar__logo">Image<span>Studio</span></a>
+    <nav class="navbar__links">
+      <a href="../index.html">Home</a>
+      <a href="finder.html">Finder</a>
+      <a href="generator.html" class="is-active">Generator</a>
+    </nav>
+    <button class="btn btn--round" id="theme-toggle" aria-label="Switch theme">🌓</button>
+  </header>
+
+  <main class="page">
+    <section class="page__header fade-up">
+      <h1>Image <span class="gradient-text">Generator</span></h1>
+      <p>Describe what you imagine and let AI create it.</p>
+    </section>
+
+    <section class="generator">
+      <!-- Left side: the form -->
+      <form class="generator__form glass fade-up" id="generator-form">
+        <label for="prompt-input">Your idea</label>
+        <textarea class="input" id="prompt-input" rows="5" required
+                  placeholder="A small house on a hill at sunset, with warm light..."></textarea>
+
+        <div class="generator__tools">
+          <button class="btn btn--small" type="button" id="surprise-button">🎲 Surprise me</button>
+          <button class="btn btn--small" type="button" id="copy-button">📋 Copy prompt</button>
+        </div>
+
+        <label for="style-select">Style</label>
+        <select class="input" id="style-select">
+          <option value="none">No style</option>
+          <option value="realistic">Realistic photo</option>
+          <option value="anime">Anime</option>
+          <option value="digital-art">Digital art</option>
+          <option value="oil-painting">Oil painting</option>
+          <option value="3d">3D render</option>
+        </select>
+
+        <label for="size-select">Size</label>
+        <select class="input" id="size-select">
+          <option value="1024x1024">Square (1024 x 1024)</option>
+          <option value="1280x720">Wide (1280 x 720)</option>
+          <option value="720x1280">Tall (720 x 1280)</option>
+        </select>
+
+        <button class="btn btn--primary" type="submit" id="generate-button">Generate</button>
+      </form>
+
+      <!-- Right side: the result -->
+      <div class="generator__result glass fade-up" id="result-area">
+        <p class="result__placeholder">Your image will appear here.</p>
+      </div>
+    </section>
+
+    <section class="generator-inspire reveal" aria-labelledby="inspire-title">
+      <div class="generator-inspire__heading">
+        <div>
+          <p class="eyebrow">Creative starting points</p>
+          <h2 id="inspire-title">A little inspiration, on demand.</h2>
+        </div>
+        <p>Choose a direction and make it your own.</p>
+      </div>
+      <div class="generator-inspire__grid">
+        <button class="inspire-card inspire-card--dream" type="button" data-prompt="A quiet coastal village at blue hour, soft lights reflecting in the water" data-style="realistic"><span class="inspire-card__art" aria-hidden="true"><i></i><i></i><i></i></span><span class="inspire-card__copy"><small>Photorealistic</small><strong>Blue hour escape</strong><b>Use prompt →</b></span></button>
+        <button class="inspire-card inspire-card--future" type="button" data-prompt="A futuristic botanical greenhouse floating above a glowing city, cinematic atmosphere" data-style="digital-art"><span class="inspire-card__art" aria-hidden="true"><i></i><i></i></span><span class="inspire-card__copy"><small>Digital art</small><strong>Tomorrow in bloom</strong><b>Use prompt →</b></span></button>
+        <button class="inspire-card inspire-card--story" type="button" data-prompt="A tiny library inside an old tree, magical warm light, storybook illustration" data-style="oil-painting"><span class="inspire-card__art" aria-hidden="true"><i></i><i></i></span><span class="inspire-card__copy"><small>Illustration</small><strong>Stories in the trees</strong><b>Use prompt →</b></span></button>
+      </div>
+    </section>
+
+    <!-- Recent ideas (saved in the browser) -->
+    <section class="history glass fade-up" id="history" hidden>
+      <div class="history__header">
+        <h2>Recent ideas</h2>
+        <button class="btn btn--small" type="button" id="clear-history">Clear</button>
+      </div>
+      <div class="history__list" id="history-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Images generated with <a href="https://pollinations.ai" target="_blank" rel="noopener">Pollinations</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,129 @@
+/* ===== Animations ===== */
+
+/* Colored shapes behind the glass */
+.background { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+
+.blob {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: float 14s ease-in-out infinite;
+}
+.blob--one   { background: #6c63ff; top: -100px; left: -80px; }
+.blob--two   { background: #ff6fb1; bottom: -120px; right: -60px; animation-delay: -5s; }
+.blob--three { background: #3ec6ff; top: 40%; left: 45%; animation-delay: -9s; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(50px, -40px) scale(1.15); }
+}
+
+/* Hero card fades in when the page loads */
+.fade-up { animation: fadeUp 0.9s ease both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Elements appear when you scroll to them (JS adds .is-visible) */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s, transform 0.8s; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ===== Loading skeleton ===== */
+.skeleton {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--neu-dark) 25%, var(--neu-light) 50%, var(--neu-dark) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  opacity: 0.5;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* Professional motion layer */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: .2;
+  pointer-events: none;
+  animation: ambientDrift 16s ease-in-out infinite alternate;
+}
+body::before { top: 14%; left: -14rem; background: #5ac8fa; }
+body::after { right: -15rem; bottom: 4%; background: #af52de; animation-delay: -7s; }
+
+@keyframes ambientDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(5rem, -2rem, 0) scale(1.12); }
+}
+
+/* Staggered entrances guide the eye from headline to action. */
+.hero__content .eyebrow { animation: riseIn .55s .05s both; }
+.hero__content h1 { animation: riseIn .65s .12s both; }
+.hero__content .hero__text { animation: riseIn .65s .2s both; }
+.hero__buttons { animation: riseIn .65s .28s both; }
+.hero__proof { animation: riseIn .7s .36s both; }
+.page__header { animation: riseIn .65s both; }
+.search { animation: riseIn .65s .12s both; }
+.generator__form { animation: riseIn .65s .1s both; }
+.generator__result { animation: riseIn .65s .2s both; }
+.history { animation: riseIn .65s .26s both; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Refined micro-interactions: responsive, short, and intentionally quiet. */
+.btn { transition: transform .22s cubic-bezier(.2,.85,.3,1), box-shadow .22s ease, filter .22s ease, background .22s ease; }
+.btn:hover { transform: translateY(-2px) scale(1.01); }
+.btn--primary:hover { box-shadow: 0 13px 26px rgba(10,132,255,.34); filter: saturate(1.1); }
+.btn:active { transform: translateY(1px) scale(.985); box-shadow: none; }
+.navbar { transition: transform .28s ease, box-shadow .28s ease, background .28s ease; }
+.navbar:hover { box-shadow: 0 16px 38px rgba(29,45,73,.16); }
+.theme-toggle { transition: transform .35s cubic-bezier(.2,.8,.2,1), background .2s ease; }
+.theme-toggle:hover { transform: rotate(18deg) scale(1.08); }
+.path-card { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
+.path-card:hover { transform: translateY(-8px); border-color: rgba(10,132,255,.32); box-shadow: 0 24px 46px rgba(42,61,95,.18); }
+.path-card__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 22%, rgba(255,255,255,.24) 47%, transparent 70%); transform: translateX(-130%); transition: transform .7s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
+.path-card:hover .path-card__visual::after { transform: translateX(130%); }
+.path-card:hover .path-card__link b { display: inline-block; animation: arrowNudge .6s ease infinite alternate; }
+@keyframes arrowNudge { from { transform: translateX(0); } to { transform: translateX(4px); } }
+.image-card { transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
+.image-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(20,34,58,.18); }
+.image-card:hover img { transform: scale(1.07); }
+.chip { transition: transform .22s ease, background .22s ease, color .22s ease !important; }
+.chip:hover { transform: translateY(-2px) !important; background: rgba(10,132,255,.12); color: var(--accent); }
+.art-card--main { animation: artworkFloat 7s ease-in-out infinite; }
+.floating-chip { animation: chipFloat 5s ease-in-out infinite; }
+.chip--ready { animation-delay: -2.5s; }
+@keyframes artworkFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes chipFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.loader { animation: spin .85s linear infinite, loaderPulse 1.6s ease-in-out infinite; }
+@keyframes loaderPulse { 50% { filter: drop-shadow(0 0 9px rgba(10,132,255,.65)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
+  .hero__content .eyebrow, .hero__content h1, .hero__content .hero__text, .hero__buttons, .hero__proof, .page__header, .search, .generator__form, .generator__result, .history { animation: none; }
+  .art-card--main, .floating-chip, .loader { animation: none; }
+  .path-card__visual::after { display: none; }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Finder | Image Studio</title>
+
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+
+  <!-- The order matters: config first, then api, then the page script -->
+  <script src="../config.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/api.js" defer></script>
+  <script src="../js/finder.js" defer></script>
+</head>
+<body>
+  <div class="background" aria-hidden="true">
+    <span class="blob blob--one"></span>
+    <span class="blob blob--two"></span>
+    <span class="blob blob--three"></span>
+  </div>
+
+  <header class="navbar glass">
+    <a href="../index.html" class="navbar__logo">Image<span>Studio</span></a>
+    <nav class="navbar__links">
+      <a href="../index.html">Home</a>
+      <a href="finder.html" class="is-active">Finder</a>
+      <a href="generator.html">Generator</a>
+    </nav>
+    <button class="btn btn--round" id="theme-toggle" aria-label="Switch theme">🌓</button>
+  </header>
+
+  <main class="page">
+    <section class="page__header fade-up">
+      <h1>Image <span class="gradient-text">Finder</span></h1>
+      <p>Search free, high quality photos and download them.</p>
+    </section>
+
+    <!-- Search form -->
+    <form class="search glass fade-up" id="search-form">
+      <input class="input search__input" id="search-input" type="text"
+             placeholder="Try: mountains, coffee, city..." required />
+
+      <select class="input" id="orientation-select" aria-label="Orientation">
+        <option value="">Any orientation</option>
+        <option value="landscape">Landscape</option>
+        <option value="portrait">Portrait</option>
+        <option value="square">Square</option>
+      </select>
+
+      <select class="input" id="color-select" aria-label="Color">
+        <option value="">Any color</option>
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="turquoise">Turquoise</option>
+        <option value="blue">Blue</option>
+        <option value="violet">Violet</option>
+        <option value="pink">Pink</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </select>
+
+      <button class="btn btn--primary" type="submit">Search</button>
+    </form>
+
+    <section class="finder-discover reveal" aria-labelledby="discover-title">
+      <div class="finder-discover__heading">
+        <div>
+          <p class="eyebrow">Start with a direction</p>
+          <h2 id="discover-title">Explore what inspires you.</h2>
+        </div>
+        <p>Choose a collection to begin your search.</p>
+      </div>
+      <div class="finder-discover__grid">
+        <button class="discovery-card discovery-card--nature" type="button" data-search="dreamy landscapes"><span class="discovery-card__art" aria-hidden="true"><i></i><i></i></span><span class="discovery-card__copy"><small>Atmosphere</small><strong>Dreamy landscapes</strong><b>→</b></span></button>
+        <button class="discovery-card discovery-card--portrait" type="button" data-search="editorial portraits"><span class="discovery-card__art" aria-hidden="true"><i></i></span><span class="discovery-card__copy"><small>People</small><strong>Editorial portraits</strong><b>→</b></span></button>
+        <button class="discovery-card discovery-card--space" type="button" data-search="modern interiors"><span class="discovery-card__art" aria-hidden="true"><i></i><i></i></span><span class="discovery-card__copy"><small>Places</small><strong>Modern interiors</strong><b>→</b></span></button>
+      </div>
+    </section>
+
+    <!-- Messages (errors, no results) -->
+    <p class="message" id="message" hidden></p>
+
+    <!-- Results -->
+    <section class="gallery" id="gallery"></section>
+
+    <div class="load-more">
+      <button class="btn" id="load-more" hidden>Load more</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+  <p>
+    Images from
+    <a href="https://openverse.org" target="_blank" rel="noopener">Openverse</a>.
+    Each image has its own license, see its page before you use it.
+  </p>
+</footer>
+</body>
+</html>
