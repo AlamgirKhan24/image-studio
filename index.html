@@ -1,62 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Image Studio helps you discover free imagery and create new ideas with AI." />
-  <title>Image Studio — Find and create images</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <script src="js/main.js" defer></script>
-</head>
-<body>
-  <header class="navbar">
-    <a href="index.html" class="navbar__logo" aria-label="Image Studio home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Image<span>Studio</span></a>
-    <nav class="navbar__links" aria-label="Main navigation"><a href="index.html" class="is-active">Home</a><a href="pages/finder.html">Explore</a><a href="pages/generator.html">Create</a></nav>
-    <div class="navbar__actions"><button class="theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme"><span aria-hidden="true">☾</span></button><a class="btn btn--nav" href="pages/generator.html">Create image <span aria-hidden="true">↗</span></a></div>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="hero__content fade-up">
-        <p class="eyebrow"><span></span> One workspace for visual ideas</p>
-        <h1>Make every idea<br /><em>look exceptional.</em></h1>
-        <p class="hero__text">Discover inspiring, free-to-use images or turn a simple thought into something entirely original with AI.</p>
-        <div class="hero__buttons"><a href="pages/generator.html" class="btn btn--primary">Start creating <span aria-hidden="true">→</span></a><a href="pages/finder.html" class="text-link">Browse the collection <span aria-hidden="true">↗</span></a></div>
-        <div class="hero__proof" aria-label="Image Studio highlights"><div><strong>AI</strong><span>powered creation</span></div><div><strong>Free</strong><span>image discovery</span></div><div><strong>Fast</strong><span>from idea to image</span></div></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Image Studio helps you discover free imagery and create new ideas with AI."
+    />
+    <title>Image Studio — Find and create images</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="navbar__logo" aria-label="Image Studio home"
+        ><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span
+        >Image<span>Studio</span></a
+      >
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a href="index.html" class="is-active">Home</a
+        ><a href="pages/finder.html">Explore</a
+        ><a href="pages/generator.html">Create</a>
+      </nav>
+      <div class="navbar__actions">
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Switch theme"
+          title="Switch theme"
+        >
+          <span aria-hidden="true">☾</span></button
+        ><a class="btn btn--nav" href="pages/generator.html"
+          >Create image <span aria-hidden="true">↗</span></a
+        >
       </div>
-      <div class="hero__art fade-up" aria-label="A preview of the creative workspace">
-        <div class="art-glow"></div><div class="art-card art-card--back"><span></span></div>
-        <div class="art-card art-card--main"><div class="art-card__top"><span class="art-card__logo">✦</span><span>Generation</span><button aria-label="More options">•••</button></div><div class="art-image"><span class="sun"></span><span class="mountain mountain--one"></span><span class="mountain mountain--two"></span><span class="mist"></span></div><div class="art-prompt"><span class="prompt-icon">✦</span><p>Dreamy mountain escape at dawn</p><span class="send-icon">↑</span></div></div>
-        <div class="floating-chip chip--style"><span>✦</span> Cinematic</div><div class="floating-chip chip--ready"><span>✓</span> Ready to share</div>
-      </div>
-    </section>
-    <section class="paths" aria-labelledby="paths-title">
-      <div class="section-heading reveal"><p class="eyebrow">Designed for your flow</p><h2 id="paths-title">Choose where to begin.</h2><p>Two focused tools, one calm creative workspace.</p></div>
-      <div class="paths__grid">
-        <a class="path-card path-card--discover reveal" href="pages/finder.html"><div class="path-card__visual visual-search"><span class="search-orb"></span><span class="photo photo--one"></span><span class="photo photo--two"></span><span class="photo photo--three"></span><span class="visual-search__bar">Search inspiring images <b>⌕</b></span></div><div class="path-card__content"><span class="path-card__number">01</span><h3>Find images</h3><p>Search a world of high-quality imagery and save the ones that move you.</p><span class="path-card__link">Explore library <b>→</b></span></div></a>
-        <a class="path-card path-card--create reveal" href="pages/generator.html"><div class="path-card__visual visual-create"><span class="create-spark spark--one">✦</span><span class="create-spark spark--two">✦</span><span class="create-shape"></span><span class="create-orbit"></span><span class="visual-create__prompt">Describe your next idea <b>↑</b></span></div><div class="path-card__content"><span class="path-card__number">02</span><h3>Generate images</h3><p>Put your vision into words and let AI create a visual that is yours.</p><span class="path-card__link">Open generator <b>→</b></span></div></a>
-      </div>
-    </section>
-    <section class="workflow reveal" aria-labelledby="workflow-title">
-      <div class="workflow__intro">
-        <p class="eyebrow">A simpler creative flow</p>
-        <h2 id="workflow-title">From a spark to a<br />share-worthy image.</h2>
-        <p>Keep the process moving with a workspace built around your next idea.</p>
-        <a class="text-link" href="pages/generator.html">Try the generator <span aria-hidden="true">↗</span></a>
-      </div>
-      <ol class="workflow__steps">
-        <li class="workflow-step"><span class="workflow-step__number">01</span><div class="workflow-step__icon workflow-step__icon--search" aria-hidden="true"><i></i><i></i></div><div><h3>Find your direction</h3><p>Search visual references that set the tone.</p></div></li>
-        <li class="workflow-step"><span class="workflow-step__number">02</span><div class="workflow-step__icon workflow-step__icon--prompt" aria-hidden="true"><span>✦</span><i></i></div><div><h3>Shape the idea</h3><p>Describe the image you want to bring to life.</p></div></li>
-        <li class="workflow-step"><span class="workflow-step__number">03</span><div class="workflow-step__icon workflow-step__icon--share" aria-hidden="true"><span>↑</span></div><div><h3>Make it yours</h3><p>Download the result and put it to work.</p></div></li>
-      </ol>
-    </section>
-    <section class="statement reveal"><p>Less searching. More <span>making.</span></p><a href="pages/generator.html" class="circle-link" aria-label="Start creating">↗</a></section>
-  </main>
-  <footer class="footer"><a href="index.html" class="navbar__logo"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Image<span>Studio</span></a><p>Find freely. Create boldly.</p><p>© 2026 Image Studio</p></footer>
-</body>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero__content fade-up">
+          <p class="eyebrow"><span></span> One workspace for visual ideas</p>
+          <h1>Make every idea<br /><em>look exceptional.</em></h1>
+          <p class="hero__text">
+            Discover inspiring, free-to-use images or turn a simple thought into
+            something entirely original with AI.
+          </p>
+          <div class="hero__buttons">
+            <a href="pages/generator.html" class="btn btn--primary"
+              >Start creating <span aria-hidden="true">→</span></a
+            ><a href="pages/finder.html" class="text-link"
+              >Browse the collection <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="hero__proof" aria-label="Image Studio highlights">
+            <div><strong>AI</strong><span>powered creation</span></div>
+            <div><strong>Free</strong><span>image discovery</span></div>
+            <div><strong>Fast</strong><span>from idea to image</span></div>
+          </div>
+        </div>
+        <div
+          class="hero__art fade-up"
+          aria-label="A preview of the creative workspace"
+        >
+          <div class="art-glow"></div>
+          <div class="art-card art-card--back"><span></span></div>
+          <div class="art-card art-card--main">
+            <div class="art-card__top">
+              <span class="art-card__logo">✦</span><span>Generation</span
+              ><button aria-label="More options">•••</button>
+            </div>
+            <div class="art-image">
+              <span class="sun"></span
+              ><span class="mountain mountain--one"></span
+              ><span class="mountain mountain--two"></span
+              ><span class="mist"></span>
+            </div>
+            <div class="art-prompt">
+              <span class="prompt-icon">✦</span>
+              <p>Dreamy mountain escape at dawn</p>
+              <span class="send-icon">↑</span>
+            </div>
+          </div>
+          <div class="floating-chip chip--style"><span>✦</span> Cinematic</div>
+          <div class="floating-chip chip--ready">
+            <span>✓</span> Ready to share
+          </div>
+        </div>
+      </section>
+      <section class="paths" aria-labelledby="paths-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Designed for your flow</p>
+          <h2 id="paths-title">Choose where to begin.</h2>
+          <p>Two focused tools, one calm creative workspace.</p>
+        </div>
+        <div class="paths__grid">
+          <a
+            class="path-card path-card--discover reveal"
+            href="pages/finder.html"
+            ><div class="path-card__visual visual-search">
+              <span class="search-orb"></span
+              ><span class="photo photo--one"></span
+              ><span class="photo photo--two"></span
+              ><span class="photo photo--three"></span
+              ><span class="visual-search__bar"
+                >Search inspiring images <b>⌕</b></span
+              >
+            </div>
+            <div class="path-card__content">
+              <span class="path-card__number">01</span>
+              <h3>Find images</h3>
+              <p>
+                Search a world of high-quality imagery and save the ones that
+                move you.
+              </p>
+              <span class="path-card__link">Explore library <b>→</b></span>
+            </div></a
+          >
+          <a
+            class="path-card path-card--create reveal"
+            href="pages/generator.html"
+            ><div class="path-card__visual visual-create">
+              <span class="create-spark spark--one">✦</span
+              ><span class="create-spark spark--two">✦</span
+              ><span class="create-shape"></span
+              ><span class="create-orbit"></span
+              ><span class="visual-create__prompt"
+                >Describe your next idea <b>↑</b></span
+              >
+            </div>
+            <div class="path-card__content">
+              <span class="path-card__number">02</span>
+              <h3>Generate images</h3>
+              <p>
+                Put your vision into words and let AI create a visual that is
+                yours.
+              </p>
+              <span class="path-card__link">Open generator <b>→</b></span>
+            </div></a
+          >
+        </div>
+      </section>
+      <section class="workflow reveal" aria-labelledby="workflow-title">
+        <div class="workflow__intro">
+          <p class="eyebrow">A simpler creative flow</p>
+          <h2 id="workflow-title">
+            From a spark to a<br />share-worthy image.
+          </h2>
+          <p>
+            Keep the process moving with a workspace built around your next
+            idea.
+          </p>
+          <a class="text-link" href="pages/generator.html"
+            >Try the generator <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <ol class="workflow__steps">
+          <li class="workflow-step">
+            <span class="workflow-step__number">01</span>
+            <div
+              class="workflow-step__icon workflow-step__icon--search"
+              aria-hidden="true"
+            >
+              <i></i><i></i>
+            </div>
+            <div>
+              <h3>Find your direction</h3>
+              <p>Search visual references that set the tone.</p>
+            </div>
+          </li>
+          <li class="workflow-step">
+            <span class="workflow-step__number">02</span>
+            <div
+              class="workflow-step__icon workflow-step__icon--prompt"
+              aria-hidden="true"
+            >
+              <span>✦</span><i></i>
+            </div>
+            <div>
+              <h3>Shape the idea</h3>
+              <p>Describe the image you want to bring to life.</p>
+            </div>
+          </li>
+          <li class="workflow-step">
+            <span class="workflow-step__number">03</span>
+            <div
+              class="workflow-step__icon workflow-step__icon--share"
+              aria-hidden="true"
+            >
+              <span>↑</span>
+            </div>
+            <div>
+              <h3>Make it yours</h3>
+              <p>Download the result and put it to work.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="statement reveal">
+        <p>Less searching. More <span>making.</span></p>
+        <a
+          href="pages/generator.html"
+          class="circle-link"
+          aria-label="Start creating"
+          >↗</a
+        >
+      </section>
+    </main>
+    <footer class="footer">
+      <a href="index.html" class="navbar__logo"
+        ><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span
+        >Image<span>Studio</span></a
+      >
+      <p>Find freely. Create boldly.</p>
+      <p>© 2026 Image Studio</p>
+    </footer>
+  </body>
 </html>
